@@ -1,18 +1,45 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
-  //if (typeof n1 !== "number" || typeof n2 !== "number") {
-  //  throw new Error("Incorrect input!");
-  // }
-  let result = n1 + n2;
-  if (showResult) {
-    console.log(phrase + result);
-  } else {
-    return result;
-  }
+/* const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // Tuple
+} = {
+  name: "Max",
+  age: 30,
+  hobbies: ["Sports", "Cooking"],
+  role: [2, "author"],
+}; */
+
+/* const ADMIN = 0;
+const READ_ONLY = 1;
+const AUTHOR = 2; */
+
+enum Role {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+const person = {
+  name: "Max",
+  age: 30,
+  hobbies: ["Sports", "Cooking"],
+  role: Role.ADMIN,
+};
+
+//person.role.push("admin"); // !!! NO ERROR !!!
+//person.role[1] = 10; // !!! ERROR !!!
+//person.role = [0, "admin", "user"]; // !!! ERROR !!!
+
+let favoriteActivities: string[];
+favoriteActivities = ["Sports"];
+
+console.log(person.name);
+
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
+  // console.log(hobby.map()); // !!! ERROR !!!
 }
 
-const number1 = 5;
-const number2 = 2.8;
-const printResult = true;
-const resultPhrase = "Result is: ";
-
-add(number1, number2, printResult, resultPhrase);
+if (person.role === Role.AUTHOR) {
+  console.log("is author");
+}
